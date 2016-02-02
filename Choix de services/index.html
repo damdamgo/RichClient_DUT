@@ -1,0 +1,28 @@
+<html ng-app="ServicesApp">
+  <head>
+    <meta charset="UTF-8"/>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controller.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+  </head>
+  <body ng-controller="ServicesController as ctrl">
+    <div id="conteneur">
+      <h1>Services</h1>
+      <div class="listeServices">
+        <div class="information">
+          <p>Choisissez les élements à inclure</p>
+          <p> {{ctrl.countActive()}} services selectionnés</p>
+        </div>
+          <div ng-repeat="service in ctrl.services" class="card" ng-class="{selectionne: service.active}" ng-click="ctrl.toggleActive($index)">
+            <div class="name">{{service.name}}</div>
+            <div class="price">{{service.price | currency}}</div>
+          </div>
+          <div class="total">
+            <div class="nameTotal">Total</div>
+            <div class="priceTotal">00</div>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
