@@ -1,0 +1,32 @@
+<html ng-app="NoteApp" >
+  <head>
+    <meta charset="UTF-8"/>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controller.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+  </head>
+  <body ng-controller="NoteController as ctrl">
+      <div id="blockNote">
+          <div class="titre">Exo 1 : note application</div>
+          <div class="conteneur">
+            <p><h3>note :</h3></p>
+            <textarea style='width:90%;margin-left:20px' ng-trim="false" ng-model="ctrl.messageNote" ng-change="ctrl.save()"></textarea>
+            <div class="conteneurButton">
+              <table>
+                <tr>
+                    <td><div class="button" ng-click="ctrl.info='Note sauvegardee'">Enregistrer</div></td>
+                    <td><div class="button" ng-click="ctrl.clear()">Effacer</div></td>
+                </tr>
+            </table>
+            </div>
+            <div class="information">
+              <div ng-class="{bon: ctrl.count()>=50,alertWarning: (ctrl.count()<50) && (ctrl.count()>25),alertDanger:(ctrl.count()<25)}">nombre de caractere restant :{{ctrl.count()}}</div>
+            </div>
+            <div class="information" ng-show="ctrl.info!=null">
+              <div ng-class="{modifier: ctrl.info!=null,bon: ctrl.info=='Note sauvegardee'}">{{ctrl.info}}</div>
+            </div>
+          </div>
+      </div>
+  </body>
+</html>
