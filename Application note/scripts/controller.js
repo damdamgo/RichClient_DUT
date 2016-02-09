@@ -14,4 +14,8 @@ angular.module('NoteApp').controller('NoteController',[function(){
   this.count=function(){
     return 100-(this.messageNote).length;
   }
+
+  this.saveNote=function(){
+    if(this.messageNote!="")this.info='Note sauvegardee';
+  }
 }]);

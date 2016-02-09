@@ -1,0 +1,49 @@
+<html ng-app="ListesApp">
+  <head>
+    <meta charset="UTF-8"/>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controller.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+  </head>
+  <body ng-controller="ListesController as ctrl">
+    <div ng-show="ctrl.step==1" class="card">
+      <div class="titre">
+        selectionez vos produits
+      </div>
+      <div class="sousTitre">
+        produits disponibles
+      </div>
+      <select size="10" multiple="multiple" ng-options="item.title for item in ctrl.dispoItems" ng-model="ctrl.selectedDispo" ng-dblclick="ctrl.dispodb()"></select>
+      <div class="boutonAjout">
+        <div ng-click="ctrl.addToIncluded()">></div>
+        <div ng-click="ctrl.addAllToIncluded()">>></div>
+        <div ng-click="ctrl.removeFromIncluded()"><</div>
+        <div ng-click="ctrl.RemoveAllFromIncluded()"><<</div>
+      </div>
+      <div class="sousTitre">
+        produits à inclures
+      </div>
+      <select size="10" multiple="multiple" ng-options="item.title for item in ctrl.includedItems" ng-model="ctrl.selectedInclu" ng-dblclick="ctrl.includedb()">
+      </select>
+      <div class="information">{{ctrl.includedItems.length}} produits selectionnés</div>
+      <div class="boutonStep" ng-click="ctrl.step=ctrl.step+1"><div>suivant</div></div>
+    </div>
+    <div ng-show="ctrl.step==2" class="card">
+      <div>
+        <table>
+          <tr ng-repeat="item in ctrl.includedItems">
+            <td>
+              <img ng-src="{{item.image}}"
+            </td>
+            <td>
+              <div>{{item.title}}</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="boutonStep" ng-click="ctrl.step=ctrl.step-1"><div>precedent</div></div>
+    </div>
+  </body>
+
+</html>

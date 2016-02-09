@@ -1,0 +1,51 @@
+.card{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    width: 50%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: #607D8B;
+}
+.card > div{
+  padding: 10px;
+}
+.card .titre{
+  color: white;
+  font-size: 1.4em;
+  margin: 10px;
+}
+.card .sousTitre{
+  color:white;
+  font-size: 1.2em;
+}
+.card{
+  padding: 10px;
+}
+.boutonAjout div{
+  float: left;
+  margin-right: 10px;
+  width: 50px;
+  color:white;
+  background: #37474F;
+  cursor: pointer;
+  text-align: center;
+}
+.card .information{
+  color:white;
+}
+.card .boutonStep{
+  width: 70px;
+  height: 70px;
+  color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  position: relative;
+  line-height: 70px;
+  background: #37474F;
+  cursor: pointer;
+  text-align: center;
+}
+.card table{
+  color:white;
+}

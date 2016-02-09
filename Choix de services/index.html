@@ -12,7 +12,7 @@
       <div class="listeServices">
         <div class="information">
           <p>Choisissez les élements à inclure</p>
-          <p> {{ctrl.countActive()}} services selectionnés</p>
+          <p> {{ctrl.total}} services selectionnés</p>
         </div>
           <div ng-repeat="service in ctrl.services" class="card" ng-class="{selectionne: service.active}" ng-click="ctrl.toggleActive($index)">
             <div class="name">{{service.name}}</div>
@@ -20,9 +20,14 @@
           </div>
           <div class="total">
             <div class="nameTotal">Total</div>
-            <div class="priceTotal">00</div>
+            <div class="priceTotal">{{ctrl.totalPrice | currency}}</div>
           </div>
       </div>
+      <div class="reduction">
+        <div ng-repeat="(k, v) in replace.promos">
+          {{k}}
+        </div>
+      </dv>
     </div>
   </body>
 </html>
