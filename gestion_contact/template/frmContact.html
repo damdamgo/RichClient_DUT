@@ -1,0 +1,24 @@
+<form name="form" ng-submit="submitForm(form.$valid)"class="css-form" novalidate>
+<table>
+  <tr>
+    <td><input name="nom" type="text" ng-model="ctrl.tmpContact.nom" required placeholder="nom"/>
+    </td>
+    <td><input name="prenom" type="text" ng-model="ctrl.tmpContact.prenom" required placeholder="prenom"/>
+    </td>
+    <td><input name="email" type="mail" ng-model="ctrl.tmpContact.mail" required placeholder="mail"/>
+    </td>
+    <td><input ng-show="ctrl.edit==1" class="button" type="submit" ng-click="ctrl.add()" value="valider"/><input ng-show="ctrl.edit==2" class="button" type="submit" ng-click="ctrl.update()" value="valider"/>
+    </td>
+  </tr>
+  <tr>
+    <td><span class="error" ng-show="form.$submitted && form.nom.$invalid">le nom est obligatoire.</span>
+    </td>
+    <td><span class="error" ng-show="form.$submitted && form.prenom.$invalid">le prenom est obligatoire.</span>
+    </td>
+    <td><span class="error" ng-show="form.$submitted &&( form.email.$invalid || form.email.$error.email)">le mail est obligatoire est doit etre valide.</span>
+    </td>
+    <td><input class="button" type="button" ng-click="ctrl.edit=0" value="annuler" />
+    </td>
+  </tr>
+</table>
+</form>

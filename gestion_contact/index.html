@@ -1,0 +1,36 @@
+<html ng-app="ContactApp">
+  <head>
+    <meta charset="UTF-8"/>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controller.js"></script>
+    <script src="scripts/directive.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+  </head>
+  <body ng-controller="ContactController as ctrl">
+    <div class="card">
+      <div class="cardTitle">Contacts
+      </div>
+      <div class="contentContacts">
+        <div class="filtre"><input type="text" placeholder="filtrer" ng-model="filtreText" style='width:100%'/></div>
+        <table class="contactsTable">
+          <colgroup>
+            <col style="width:25%">
+            <col style="width:25%">
+            <col style="width:25%">
+            <col style="width:5%">
+            <col style="width:5%">
+          </colgroup>
+          <tr ng-repeat="contact in  ctrl.contacts| checkDelete | filter:filtreText" contact-elem></tr>
+        </table>
+        <div class="button" ng-click="ctrl.toAdd()">Ajouter</div>
+        <div class="buttonDeleteRetrieve" ng-show="ctrl.getNbDeleted()>0" ng-click="ctrl.cancelOneDeletion()">Annuler la ou les suppressions({{ctrl.getNbDeleted()}})</div>
+      </div>
+      <div class="formulaire" ng-show="ctrl.edit!=0">
+          <div class='titreFormulaire'><h2>{{ctrl.operation}}</h2></div>
+          <frm-contact></frm-contact>
+      </div>
+      <div>{{ctrl.contacts.length}} contacts</div>
+    </div>
+  </body>
+</html>

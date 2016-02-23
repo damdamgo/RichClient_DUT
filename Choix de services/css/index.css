@@ -38,18 +38,19 @@
   position: absolute;
   right: 10px;
 }
-.total{
+.showDiv{
   border-radius: 10px;
   position: relative;
   width: 100%;
   text-align: left;
   margin-top: 25px;
+  height: 40px;
 }
-.nameTotal{
+.showLeft{
   position: absolute;
   left:10px;
 }
-.priceTotal{
+.showRight{
   position: absolute;
   right:10px;
 }

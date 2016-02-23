@@ -18,16 +18,24 @@
             <div class="name">{{service.name}}</div>
             <div class="price">{{service.price | currency}}</div>
           </div>
-          <div class="total">
-            <div class="nameTotal">Total</div>
-            <div class="priceTotal">{{ctrl.totalPrice | currency}}</div>
+          <div class="showDiv">
+            <div class="showLeft">Total</div>
+            <div class="showRight">{{ctrl.totalPrice | currency}}</div>
+          </div>
+          <div class="reduction">
+            <!--<div ng-repeat="(k, v) in ctrl.promos">
+            </div>-->
+            <span>REDUCTION :</span><input type="checkbox" ng-model="ctrl.acceptPromo" ng-change="ctrl.checkPromos()"><input type="text" ng-model="ctrl.textPromos" ng-change="ctrl.checkPromos()"/>
+          </div>
+          <div class="showDiv">
+            <div class="showLeft">Remise</div>
+            <div class="showRight">{{ctrl.remiseSurTotal | currency}}</div>
+          </div>
+          <div class="showDiv">
+            <div class="showLeft">total avec remise</div>
+            <div class="showRight">{{ctrl.prixAvecRemise | currency}}</div>
           </div>
       </div>
-      <div class="reduction">
-        <div ng-repeat="(k, v) in replace.promos">
-          {{k}}
-        </div>
-      </dv>
     </div>
   </body>
 </html>

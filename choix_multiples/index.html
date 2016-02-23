@@ -24,10 +24,9 @@
       <div class="sousTitre">
         produits à inclures
       </div>
-      <select size="10" multiple="multiple" ng-options="item.title for item in ctrl.includedItems" ng-model="ctrl.selectedInclu" ng-dblclick="ctrl.includedb()">
-      </select>
+      <select size="10" multiple="multiple" ng-options="item.title for item in ctrl.includedItems" ng-model="ctrl.selectedInclu" ng-dblclick="ctrl.includedb()"></select>
       <div class="information">{{ctrl.includedItems.length}} produits selectionnés</div>
-      <div class="boutonStep" ng-click="ctrl.step=ctrl.step+1"><div>suivant</div></div>
+      <div class="boutonStep" ng-click="ctrl.step=ctrl.step+1" ng-show="ctrl.includedItems.length!=0"><div>suivant</div></div>
     </div>
     <div ng-show="ctrl.step==2" class="card">
       <div>
