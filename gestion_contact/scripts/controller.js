@@ -29,10 +29,13 @@ angular.module("ContactApp").controller("ContactController",["$scope","$http",fu
   }
 
   this.add=function(){
-    this.tmpContact.deleted=false;
-    this.contacts.push(this.tmpContact);
-    this.edit=0;
-    this.tmpContact={};
+    if(this.edit==1){
+      this.tmpContact.deleted=false;
+      this.contacts.push(this.tmpContact);
+      this.edit=0;
+      this.tmpContact={};
+    }
+    else this.update();
   }
 
   this.update=function(){
@@ -48,6 +51,14 @@ angular.module("ContactApp").controller("ContactController",["$scope","$http",fu
     for(i=0;i<self.contacts.length;i++){
         self.contacts[i].deleted=false;
     }
+  }
+
+  this.contactsValid=function(){
+    ib=0;
+    for(i=0;i<this.contacts.length;i++){
+      if(this.contacts[i].deleted==false)ib++;
+    }
+    return ib;
   }
 
   this.getNbDeleted=function(){
