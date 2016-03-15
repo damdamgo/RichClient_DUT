@@ -1,0 +1,37 @@
+<html ng-app="CurrencyApp">
+  <head>
+    <meta charset="UTF-8"/>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+  </head>
+  <body ng-controller="CurencyController as ctrl">
+    <div class="card">
+      <div class="cardTitle">Currency Application
+      </div>
+        <form ng-submit="ctrl.getResult()">
+          <input type="text" ng-model="ctrl.what">
+          <select size="1" ng-options="item.code+'-'+item.name for item in ctrl.currencies" ng-model="ctrl.from"></select>
+          <button ng-click="ctrl.swap()">swap</button>
+          <select size="1" ng-options="item.code+'-'+item.name for item in ctrl.currencies" ng-model="ctrl.to"></select>
+          <input type="submit" value="convertir">
+          <span class="displayResult">{{ctrl.result}}</span>
+          <input type="checkbox" ng-model="ctrl.acceptHistory">historique
+        </form>
+        <table>
+          <tr>
+            <th>De</th>
+            <th>En</th>
+            <th>Tx</th>
+            <th>Montatn</th>
+            <th>Date</th>
+            <th>Delta</th>
+            <th colspan="2">Options</th>
+          </tr>
+          <tr ng-repeat="object in ctrl.historique" historique-elem on-delete="ctrl.onDelete(object)" on-update="ctrl.onUpdate(object)" object="object"></tr>
+        </table>
+        <div><input type="checkbox" ng-model="ctrl.automationUpdate" ng-change="ctrl.automation()"/><input type="number" ng-model="ctrl.updateNbSecond"/><button ng-click="ctrl.updateAll()">rafraichir</button>
+    </div>
+  </body>
+</html>

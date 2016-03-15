@@ -10,9 +10,9 @@ angular.module("ListesApp").controller("ListesController",["$scope","$http",func
 
   this.step=1;
 
-  this.selectedDispo;
+  this.selectedDispo=[];
 
-  this.selectedInclu;
+  this.selectedInclu=[];
 
   this.addToIncluded=function(){
       while(this.selectedDispo.length!=0){
